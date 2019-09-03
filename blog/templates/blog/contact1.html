@@ -1,0 +1,143 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{%static 'css/contact.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">  <title>ToWaves</title>
+</head>
+<body>
+  <header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="logo"><img src="{%static 'img/logoo.png' %}"></div>
+          <nav>
+          <ul>
+            <li><a href="#" >Create Event</a> </li>
+            <li><a href="#">Login</a> </li>
+            <li><a href="#">Sign up</a></li>
+          
+          </ul>
+        </nav>
+    <div class="menu-toggle" ><i class="fas fa-bars"></i>
+    
+    </div> 
+      </div>
+    </div>
+  </div>
+</header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 contact">
+      <h1 class="display-3">Contact Us</h1>
+    </div>
+    </div>
+  </div>
+<section class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-lg-0 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <!-- Header -->
+            <div id="inputs">
+                <form method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <input type="submit" value="Send Message">
+                </form>
+            </div>
+            </div>
+          </div>
+        </div>
+        <!-- Form with header -->
+      </div>
+      <!-- Grid column -->
+      <div class="col-lg-12">
+        <!--Google map-->
+        <div id="map-container-section" class="z-depth-1-half map-container-section mb-4" style="height: 400px">
+          <iframe src="https://maps.google.com/maps?q=Baku&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
+            style="border:0" allowfullscreen></iframe>
+        </div>
+        <!-- Buttons-->
+        <div class="row text-center">
+          <div class="col-md-4">
+            <a class="btn-floating blue accent-1">
+              <i class="fas fa-map-marker-alt"></i>
+            </a>
+            <p>Baku</p>
+            <p class="mb-md-0">Azerbaijan</p>
+          </div>
+          <div class="col-md-4">
+            <a class="btn-floating blue accent-1">
+              <i class="fas fa-phone"></i>
+            </a>
+            <p>+ 01 234 567 89</p>
+            <p class="mb-md-0">Mon - Fri, 8:00-22:00</p>
+          </div>
+          <div class="col-md-4">
+            <a class="btn-floating blue accent-1">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <p>info@gmail.com</p>
+            <p class="mb-0">sale@gmail.com</p>
+          </div>
+        </div>
+  
+      </div>
+      <!-- Grid column -->
+  
+    </div>
+    <!-- Grid row -->
+  
+  </section>
+  <footer class="footer-distributed">
+
+        <div class="footer-right">
+
+          <a class="btn-floating btn-fb mx-1">
+            <i class="fab fa-facebook-f"> </i>
+          </a> 
+          
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+          </a>
+         
+        </div>
+
+        <div class="footer-left">
+
+          <p class="footer-links">
+            <a href="#">Home</a>
+
+            <a href="#">Events</a>
+
+            <a href="#">Contact us</a>
+
+            <a href="#">About</a>
+
+            <a href="#">English</a>
+
+          </p>
+          <hr style="background-color:grey !important;">
+
+          <p>Company Name &copy; 2019 by Towaves</p>
+        </div>
+
+      </footer>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.menu-toggle').click(function(){
+      $('nav').toggleClass('active')
+    })
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{%load static%}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <title>ToWaves</title>
+    <link rel="stylesheet" href="{%static 'css/signin.css' %}">
+</head>
+<body>
+    <div class="container-1">
+        <div>
+            <img class="log" src="{%static 'img/logoo.png' %}">
+        </div>
+<a href='{% provider_login_url "facebook" %}' class="loginBtn loginBtn--facebook" style="display:inline-block;">
+  <span class="fa fa-facebook"></span>
+    Sign up with Facebook
+ </a>
+    </div>
+</body>
+</html>

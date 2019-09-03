@@ -1,0 +1,18 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block content %}
+<div class="container">
+    <h1>Log In</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+    <button class="btn waves-effect waves-light" type="submit">Log In</button>
+    </form>
+</div>
+{{user}}
+<a href='{% provider_login_url "facebook" %}' class="btn btn-block btn-social btn-facebook" style="background-color:#3b5998;text-align:center;">
+  <span class="fa fa-facebook"></span>
+    Sign in with Facebook
+ </a>
+{% endblock %}

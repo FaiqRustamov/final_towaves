@@ -1,0 +1,14 @@
+Contact Name: 
+{{ contact_name }}
+
+Contact Surname:
+{{contact_surname}}
+
+Email:
+{{ contact_email }}
+
+Subject:
+{{contact_subject}}
+
+Content:
+{{ contact_content }}

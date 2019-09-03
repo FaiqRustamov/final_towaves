@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToWaves</title>
+    <link rel="stylesheet" href="{% static 'css/description.css'%}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">  <title>ToWaves</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+              <a href="#" class="navbar-brand">
+                  <img style="width: 119.73; height:49.5px;" src="{% static 'img/Group 264@2x.png'%}">    </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span style="background-color: black;" class="icon-bar"></span>
+                          <span style="background-color: black;"  class="icon-bar"></span>
+                          <span style="background-color: black;" class="icon-bar"></span>
+                      </button>
+          </div>
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a style="border-right: 1px solid black;"  href="#">Create Event</a></li>
+              <li><a style="color: black;" href="./login.html">Login</a></li>
+              <li><a style="color: black;" href="./signin.html">Sign Up</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="wrap">
+          <div class="container">
+            <section class="row">
+              <div class="col-md-6">
+              {% if not user.is_anonymous %}
+                <section >
+                    <div class="card card-inverse card-primary text-center">
+                        <img class="card-img-top" src="{{ event.img.url }}" alt="{{event.name}}">
+                        <div class="card-block">
+                          <h4 class="card-title">This is Card #2</h4>
+                          <a href="#"><img class="star" src="{% static 'img/A_Black_Star.png' %}"></a>
+                       <button>go</button>      
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+      
+                      <!-- Start of Connect With Me Area -->
+                      <section >
+                        <div class="connect-with-me-content">
+                              <h3>Teskilatin adi:{{event.name}}</h3>
+                              <h3>Barede: {{event.description}}</h3>
+                              <h3>NE vaxt basliyir: {{event.start_time}}</h3>
+                              <h3>Hansi gun: {{event.appointment_time}}</h3>
+                              <h3>Hansi kategoriyadadi: {{event.category}}</h3>
+                              <h3>USerin adi:{{event.user}}</h3>
+
+
+                        </div>
+                        {%else%}
+                        <h3>Please login to your account to create</h3>
+                        {%endif%}
+                    </div>
+      
+                </section>
+                
+              </div>
+              
+            </section>
+      
+          </div>
+          </section>
+        </div>
+<section class="container">
+  <div class="row">
+      <div class="col-lg-12">
+  
+          <div id="map-container-section" class="z-depth-1-half map-container-section mb-4" style="height: 400px">
+            <iframe src="https://maps.google.com/maps?q=Baku&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
+              style="border:0" allowfullscreen></iframe>
+          </div>
+        
+    
+        </div>
+        
+  </div>
+</section>
+
+      <!-- <div class="container pb-cmnt-container">
+          <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                  <div class="panel panel-info">
+                      <div class="panel-body">
+                          <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                          <form class="form-inline">
+                              <div class="btn-group">
+                                  <button class="btn" type="button"><span class="fa fa-picture-o fa-lg"></span></button>
+                                  <button class="btn" type="button"><span class="fa fa-video-camera fa-lg"></span></button>
+                                  <button class="btn" type="button"><span class="fa fa-microphone fa-lg"></span></button>
+                                  <button class="btn" type="button"><span class="fa fa-music fa-lg"></span></button>
+                              </div>
+                              <button class="btn btn-primary pull-right" type="button">Share</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+      <div class="choose-container">
+        <div class="clearfix"></div>
+
+        <div class="time-select">
+        <!-- hiden maps with multiple locator-->
+        <div class="map">
+            <div id='cimenas-map'></div> 
+        </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="text-center">
+                    Comment
+                </h2>
+            </div>
+            <div class="col-lg-6">
+                <div id="comment-field"></div>
+            </div>
+            <div class="col-lg-6">
+              <form>
+                  <div class="form-group">
+                    <label for="comment-name">Name:</label>
+                    <input type="email" class="form-control" id="comment-name"  placeholder="Enter your name">
+                  </div>
+                  <div class="form-group">
+                    <label for="comment-body">Comment:</label>
+                    <textarea type="password" class="form-control" id="comment-body" placeholder="comment"></textarea>
+                  </div>
+                  <div class="form-group form-check text-right">
+                      <button type="submit" id="comment-add" class="btn btn-primary">add Comment</button>
+                  </div>
+              </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+    <footer class="footer-distributed">
+      <div class="footer-right">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a> 
+           <a class="ins-ic">
+             <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+           </a>
+      </div>
+          <div class="footer-left">
+            <p class="footer-links">
+              <a href="#">Home</a>
+              <a href="#">Events</a>
+              <a href="#">Contact us</a>
+              <a href="#">About</a>
+              <a href="#">English</a>
+            </p>
+            <hr style="background-color:grey !important;">
+            <p>Company Name &copy; 2019 by Towaves</p>
+          </div>
+        </footer>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <script>
+    let comments = [];
+loadComments();
+
+document.getElementById('comment-add').onclick = function(){
+    let commentName = document.getElementById('comment-name');
+    let commentBody = document.getElementById('comment-body');
+
+    let comment = {
+        name : commentName.value,
+        body : commentBody.value,
+        time : Math.floor(Date.now() / 1000)
+    }
+
+    commentName.value = '';
+    commentBody.value = '';
+
+    comments.push(comment);
+    saveComments();
+    showComments();
+}
+
+function saveComments(){
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function loadComments(){
+    if (localStorage.getItem('comments')) comments = JSON.parse(localStorage.getItem('comments'));
+    showComments();
+}
+
+function showComments (){
+    let commentField = document.getElementById('comment-field');
+    let out = '';
+    comments.forEach(function(item){
+        out += `<p class="text-right small"><em>Post: ${timeConverter(item.time)}</em></p>`;
+        out += `<div style="background-color:silver;font-weight:bold;paddign:2em;">
+  <em style="padding:2em;">Username: 
+        ${item.name}</em><br>
+  <em style="padding:2em;">Comment:
+        ${item.body}</em>
+        </div>`
+        
+    });
+    commentField.innerHTML = out;
+}
+
+function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
+  }
+</script>
+
+
+</body>
+</html>

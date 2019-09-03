@@ -1,0 +1,286 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <title>Towaves</title>
+  <link rel="stylesheet" href="{%static 'css/homepage.css'%}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">  <title>ToWaves</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+          <a href="{%url 'blog:home' %}" class="navbar-brand">
+              <img style="width: 119.73; height:49.5px;" src="{%static 'img/Group 264@2x.png'%}">    </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span style="background-color: black;" class="icon-bar"></span>
+                      <span style="background-color: black;"  class="icon-bar"></span>
+                      <span style="background-color: black;" class="icon-bar"></span>
+                  </button>
+      </div>
+  
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+         
+          {% if user.is_authenticated %}
+           <li><a style="margin-left: -9em; border-right: 1px solid #acabab;" class="create" 
+          href="{%url 'blog:create_event' %}">Create Event</a></li>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{%static 'img/1690.jpg' %}" style="width:37px;" class="profile-image img-circle"> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                   
+                    <li class="divider"></li>
+                    <li><a href="{%url 'blog:userpanel' %}"><i class="fa fa-user" aria-hidden="true"></i> UserPanel</a></li>
+                    <li><a href="{%url 'blog:logout' %}"> Sign-out <i class="fas fa-sign-out-alt"></i></a></li>
+                </ul>
+            </li>
+            
+            </ul>
+          </div>
+          {%else%}
+          <li><a style="color: black;" href="{%url 'blog:login'%}">Login</a></li>
+          <li><a style="color: black;" href="{%url 'blog:signup'%}">Sign Up</a></li>
+          {%endif%}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <section class="container">
+      <div class="row">
+              <video id="video" class="vid" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+      </video>
+    </div>  
+    </section>
+      <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+          <div class="w-100 text-white">
+            <h1 class="display-3">Share your ideas,realize your dreams!</h1>
+            <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
+            <button class="bt1">Explore Events</button>
+          </div>
+        </div>
+      </div>
+
+    <section class="container p-t-3">
+      <div class="row">
+          <div class="col-lg-12">
+              <h2>Top Events</h2>
+              <a href="{% url 'blog:categories' %}" style="color: rgb(98, 98, 255);float:right;">See More</a>
+          </div>
+      </div>
+  </section>
+  <div class="carousel-reviews broun-block">
+      <div class="container">
+          <div class="row">
+              <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+              
+                  <div class="carousel-inner">
+                      <div class="item active">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="card card-inverse card-success text-center">
+                                <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg' %}" alt="Card image cap">
+                                <div class="card-block">
+                                  <h4 class="card-title">Event Name</h4>
+                                  <p class="card-text">Event Description</p>
+                                  <a href="#"><img class="star" src="{%static 'img/A_Black_Star.png' %}"></a>
+                                  <a href="#" id="justdoit" class="btn btn-primary ad">Join</a>
+                              </div>
+                              </div>
+                
+              </div>
+                    <div class="col-md-4 col-sm-6 hidden-xs">
+                        <div class="card card-inverse card-success text-center">
+                            <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Event Name</h4>
+                              <p class="card-text">Event Description</p>
+                              <a href="#"><img class="star" src="{%static 'img/A_Black_Star.png'%}"></a>
+                              <a href="#" class="btn btn-primary ad">Join</a>
+                          </div>
+                          </div>
+                
+              </div>
+              <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                  <div class="card card-inverse card-success text-center">
+                      <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                      <div class="card-block">
+                        <h4 class="card-title">Event Name</h4>
+                        <p class="card-text">Event Description</p>
+                        <a href="#"><img class="star" src="{%static 'img/A_Black_Star.png' %}"></a>
+                        <a href="#" class="btn btn-primary ad">Join</a>
+                    </div>
+                    </div>
+               
+              </div>
+                      </div>
+                      <div class="item">
+                          <div class="col-md-4 col-sm-6">
+                              <div class="card card-inverse card-success text-center">
+                                  <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                                  <div class="card-block">
+                                    <h4 class="card-title">Event Name</h4>
+                                    <p class="card-text">Event Description</p>
+                                    <a href="#"><img class="star" src="{%static 'img/A_Black_Star.png'%}"></a>
+                                    <a href="#" class="btn btn-primary ad">Join</a>
+                                </div>
+                                </div>
+              </div>
+                    <div class="col-md-4 col-sm-6 hidden-xs">
+              
+                        <div class="card card-inverse card-success text-center">
+                            <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Event Name</h4>
+                              <p class="card-text">Event Description</p>
+                              <a href="#"><img class="star" src="{%static 'img/A_Black_Star.png'%}"></a>
+                              <a href="#" class="btn btn-primary ad">Join</a>
+                          </div>
+                          </div>
+              </div>
+              <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                  <div class="card card-inverse card-success text-center">
+                      <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                      <div class="card-block">
+                        <h4 class="card-title">Event Name</h4>
+                        <p class="card-text">Event Description</p>
+                        <a href="#"><img class="star" src="{%static 'img/A_Black_Star.png'%}"></a>
+                        <a href="#" class="btn btn-primary ad">Join</a>
+                    </div>
+                    </div>
+                
+              </div>
+                      </div>
+                      <div class="item">
+                          <div class="col-md-4 col-sm-6">
+                    
+                              <div class="card card-inverse card-success text-center">
+                                  <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                                  <div class="card-block">
+                                    <h4 class="card-title">Event Name</h4>
+                                    <p class="card-text">Event Description</p>
+                                    <img class="star" src="{%static 'img/A_Black_Star.png'%}">
+                                    <a href="#" class="btn btn-primary ad">Join</a>
+                                </div>
+                                </div>
+              </div>
+                    <div class="col-md-4 col-sm-6 hidden-xs">
+                        <div class="card card-inverse card-success text-center">
+                            <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Event Name</h4>
+                              <p class="card-text">Event Description</p>
+                              <img class="star" src="{%static 'img/A_Black_Star.png'%}">
+                              <a href="#" class="btn btn-primary ad">Join</a>
+                          </div>
+                          </div>
+              </div>
+              <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                  <div class="card card-inverse card-success text-center">
+                      <img class="card-img-top" src="{%static 'img/autumn-equinox.jpg'%}" alt="Card image cap">
+                      <div class="card-block">
+                        <h4 class="card-title">Event Name</h4>
+                        <p class="card-text">Event Description</p>
+                        <img class="star" src="{%static 'img/A_Black_Star.png'%}">
+                        <a href="#" class="btn btn-primary ad">Join</a>
+                    </div>
+                    </div>
+              </div>
+                      </div>                    
+                  </div>
+                  <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    <div class="wrap">
+      <div class="container">
+        <section class="row">
+          <div class="col-md-12">
+            <section id="portfolio-area">
+              <h1 style="float:left;" class="port-header">Categories</h1>
+              <hr class="port-hr" />
+            </div>
+
+              </section>
+          <div class="row">
+            {%for category in categories %}
+            <div style="display:inline-block; " class="col-md-3">
+                <img class="port-imgs" src="{{ category.img.url }}" alt="">
+                <p>{{category.title}}</p>
+              </div>
+            {% endfor %}
+            
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer-distributed">
+
+        <div class="footer-right">
+
+          <a class="btn-floating btn-fb mx-1">
+            <i class="fab fa-facebook-f"> </i>
+          </a> 
+          
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+          </a>
+         
+        </div>
+
+        <div class="footer-left">
+
+          <p class="footer-links">
+            <a class="footer-elements" href="{%url 'blog:home' %}">Home</a>
+
+            <a class="footer-elements" href="{%url 'blog:categories'%}">Events</a>
+
+            <a class="footer-elements" href="{%url 'blog:contact' %}">Contact us</a>
+
+            <a class="footer-elements" href="{%url 'blog:contact'%}">About</a>
+
+            <a class="footer-elements" href="#">English</a>
+
+          </p>
+          <hr style="background-color:white !important;">
+
+          <p>Company Name &copy; 2019 by Towaves</p>
+        </div>
+
+      </footer>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+
+</script>
+</body>
+
+</html>
